@@ -7,6 +7,6 @@ $player = new Player();
 switch($_POST['action'])
 {
     case 'bet_request':
-        echo $player->betRequest($_POST['game_state']);
+        echo $player->betRequest(json_decode($_POST['game_state'], true));
         break;
 }
