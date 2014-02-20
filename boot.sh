@@ -1,3 +1,3 @@
 #!/bin/bash
 
-php5-chdir -S 'localhost:8080'
+php5-chdir -S 'localhost:8000'
