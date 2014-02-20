@@ -6,4 +6,8 @@ class Player
     {
         return 0;
     }
+
+    public function showdown($game_state)
+    {
+    }
 }
