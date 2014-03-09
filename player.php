@@ -2,7 +2,7 @@
 
 class Player
 {
-    public static const VERSION = "Default PHP folding player";
+    const VERSION = "Default PHP folding player";
 
     public function betRequest($game_state)
     {
