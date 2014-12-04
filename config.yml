@@ -1,4 +1,4 @@
-url: http://localhost:8000/player_service.php
+url: http://localhost:8000/
 port: 8000
-path: /player_service.php
+path: /
 dependencies: 
