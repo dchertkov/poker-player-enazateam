@@ -62,6 +62,6 @@ class Player
 
     public function showdown($game_state)
     {
-        error_log('showdown:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
+        // error_log('showdown:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
     }
 }
