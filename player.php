@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3";
+    const VERSION = "2.3.1";
 
     public function betRequest($game_state)
     {
@@ -17,8 +17,8 @@ class Player
     		if ($p['name'] == 'EnazaTeam') {
                 $blindsCount = $p['stack'] / ($game_state['small_blind'] * 2);
 
-                if ($blindsCount > 20) {
-                    $limitPercent = 70;
+                if ($blindsCount > 25) {
+                    $limitPercent = 75;
                 } elseif ($blindsCount > 12) {
                     $limitPercent = 60;
                 } else {
