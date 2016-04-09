@@ -5,12 +5,14 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.1";
+    const VERSION = "2.3.2";
 
     public function betRequest($game_state)
     {
-        error_log('betRequest:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
+        // error_log('betRequest:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
 
+
+        error_log($game_state['round'] . PHP_EOL . '---' . PHP_EOL);
 
     	// error_log(print_R(game_state, true));
     	foreach ($game_state['players'] as $p) {
@@ -32,6 +34,7 @@ class Player
 
                 error_log('card1:' . PHP_EOL . json_encode($card1) . PHP_EOL);
                 error_log('card2:' . PHP_EOL . json_encode($card2) . PHP_EOL);
+                error_log('$result:' . PHP_EOL . $result);
                 error_log('$limitPercent:' . PHP_EOL . $limitPercent);
 
 		    	return $result > $limitPercent ? 1000000 : 0;
