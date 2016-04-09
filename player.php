@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.6";
+    const VERSION = "2.3.7";
 
     public function betRequest($game_state)
     {
@@ -38,6 +38,8 @@ class Player
                     $limitPercent = 80;
                 } elseif ($blindsCount > 12) {
                     $limitPercent = 70;
+                } elseif ($blindsCount > 8) {
+                    $limitPercent = 63;
                 } else {
                     $limitPercent = 55;
                 }
