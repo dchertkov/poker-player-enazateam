@@ -1,14 +1,12 @@
 <?php
 
-// error_reporting(0);
-
 require_once('functions/fCheckProbability.php');
 require_once('functions/deciding.php');
 require_once('functions/combination.php');
 
 class Player
 {
-    const VERSION = "2.3.14";
+    const VERSION = "2.3.13";
 
     public function betRequest($game_state)
     {
@@ -58,15 +56,15 @@ class Player
                     $position = $playersCount - $dealerIndex + $currentIndex;
                 }
 
-                if ($i == $p) {
-                    $position = $playersCount;
-                } else {
-                    if ($dealerIndex < $i) {
-                        $position = $i - $dealerIndex;
-                    } else {
-                        $position = $i + $playersCount - $dealerIndex;
-                    }
-                }
+                // if ($i == $p) {
+                //     $position = $playersCount;
+                // } else {
+                //     if ($dealerIndex < $i) {
+                //         $position = $i - $dealerIndex;
+                //     } else {
+                //         $position = $i + $playersCount - $dealerIndex;
+                //     }
+                // }
           
                 $result2 = deciding($card1['rank'], $card2['rank'], $card1['suit'] == $card2['suit'], $position, $limpersCount = false, $raisersCount = false, $allInCount);
 
@@ -79,13 +77,13 @@ class Player
                 error_log('$result2:' . PHP_EOL . $result2);
                 error_log('$allInCount:' . PHP_EOL . $allInCount);
 
-                // if (count($game_state['community_cards']) >= 3) {
-                //     $combinationResult = combination($card1, $card2, $game_state['community_cards'][0], $game_state['community_cards'][1], $game_state['community_cards'][2]);
+                if (count($game_state['community_cards']) >= 3) {
+                    $combinationResult = combination($card1, $card2, $game_state['community_cards'][0], $game_state['community_cards'][1], $game_state['community_cards'][2]);
 
-                //     if ($combinationResult == 'flash' || $combinationResult == 'trips') {
-                //         $limitPercent = 0;
-                //     }
-                // }
+                    if ($combinationResult == 'flash' || $combinationResult == 'trips') {
+                        $limitPercent = 0;
+                    }
+                }
 
 		    	if ($result > $limitPercent) {
                     return 1000000;
