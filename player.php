@@ -5,11 +5,11 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.5";
+    const VERSION = "2.3.6";
 
     public function betRequest($game_state)
     {
-        // error_log('betRequest:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
+        error_log('betRequest:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
 
 
         error_log('round: ' . $game_state['round'] . PHP_EOL . '---' . PHP_EOL);
