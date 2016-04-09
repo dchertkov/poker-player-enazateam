@@ -1,12 +1,14 @@
 <?php
 
+// error_reporting(0);
+
 require_once('functions/fCheckProbability.php');
 require_once('functions/deciding.php');
 require_once('functions/combination.php');
 
 class Player
 {
-    const VERSION = "2.3.13";
+    const VERSION = "2.3.14";
 
     public function betRequest($game_state)
     {
@@ -56,15 +58,15 @@ class Player
                     $position = $playersCount - $dealerIndex + $currentIndex;
                 }
 
-                // if ($i == $p) {
-                //     $position = $playersCount;
-                // } else {
-                //     if ($dealerIndex < $i) {
-                //         $position = $i - $dealerIndex;
-                //     } else {
-                //         $position = $i + $playersCount - $dealerIndex;
-                //     }
-                // }
+                if ($i == $p) {
+                    $position = $playersCount;
+                } else {
+                    if ($dealerIndex < $i) {
+                        $position = $i - $dealerIndex;
+                    } else {
+                        $position = $i + $playersCount - $dealerIndex;
+                    }
+                }
           
                 $result2 = deciding($card1['rank'], $card2['rank'], $card1['suit'] == $card2['suit'], $position, $limpersCount = false, $raisersCount = false, $allInCount);
 
