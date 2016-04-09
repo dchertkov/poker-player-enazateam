@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.7";
+    const VERSION = "2.3.8";
 
     public function betRequest($game_state)
     {
@@ -45,18 +45,25 @@ class Player
 
 		    	$result = fCheckProbability($card1['rank'], $card2['rank'], $card1['suit'] == $card2['suit']);
           
-                $dealerIndex = $game_state['dealer'] - 1;
+                $dealerIndex = $game_state['dealer'];
+                $currentIndex = $i + 1;
                 $playersCount = count($game_state['players']);
 
-                if ($i == $p) {
-                    $position = $playersCount;
+                if ($dealerIndex < $currentIndex) {
+                    $position = $currentIndex - $dealerIndex;
                 } else {
-                    if ($dealerIndex < $i) {
-                        $position = $i - $dealerIndex;
-                    } else {
-                        $position = $i + $playersCount - $dealerIndex;
-                    }
+                    $position = $playersCount - $dealerIndex + $currentIndex;
                 }
+
+                // if ($i == $p) {
+                //     $position = $playersCount;
+                // } else {
+                //     if ($dealerIndex < $i) {
+                //         $position = $i - $dealerIndex;
+                //     } else {
+                //         $position = $i + $playersCount - $dealerIndex;
+                //     }
+                // }
           
                 $result2 = deciding($card1['rank'], $card2['rank'], $card1['suit'] == $card2['suit'], $position, $limpersCount = false, $raisersCount = false, $allInCount);
 

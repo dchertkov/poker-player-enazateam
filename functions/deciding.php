@@ -49,6 +49,8 @@ function deciding($card1, $card2, $isSuited, $position = false, $limpersCount = 
 	// echo "Вероятность с учетом других факторов $baseProbability \n";
 
 	$baseProbability = $baseProbability * $aggressionFactor;
+
+	return $baseProbability;
 }
 
 // deciding("A", "K", false, 4, 5, 1);
