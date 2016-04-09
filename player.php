@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.1";
+    const VERSION = "2.2";
 
     public function betRequest($game_state)
     {
@@ -17,7 +17,7 @@ class Player
 
 		    	$result = fCheckProbability($card1['rank'], $card2['rank'], $card1['suit'] == $card2['suit']);
 
-		    	return $result > 60 ? 1000000 : 0;
+		    	return $result > 70 ? 1000000 : 0;
     		}
     	}
 
@@ -26,5 +26,6 @@ class Player
 
     public function showdown($game_state)
     {
+        error_log(json_encode($game_state));
     }
 }
