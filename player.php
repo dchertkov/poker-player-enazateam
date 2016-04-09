@@ -77,13 +77,13 @@ class Player
                 error_log('$result2:' . PHP_EOL . $result2);
                 error_log('$allInCount:' . PHP_EOL . $allInCount);
 
-                if (count($game_state['community_cards']) >= 3) {
-                    $combinationResult = combination($card1, $card2, $game_state['community_cards'][0], $game_state['community_cards'][1], $game_state['community_cards'][2]);
+                // if (count($game_state['community_cards']) >= 3) {
+                //     $combinationResult = combination($card1, $card2, $game_state['community_cards'][0], $game_state['community_cards'][1], $game_state['community_cards'][2]);
 
-                    if ($combinationResult == 'flash' || $combinationResult == 'trips') {
-                        $limitPercent = 0;
-                    }
-                }
+                //     if ($combinationResult == 'flash' || $combinationResult == 'trips') {
+                //         $limitPercent = 0;
+                //     }
+                // }
 
 		    	if ($result > $limitPercent) {
                     return 1000000;
