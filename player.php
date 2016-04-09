@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.8";
+    const VERSION = "2.3.9";
 
     public function betRequest($game_state)
     {
@@ -76,7 +76,13 @@ class Player
                 error_log('$result2:' . PHP_EOL . $result2);
                 error_log('$allInCount:' . PHP_EOL . $allInCount);
 
-		    	return $result > $limitPercent ? 1000000 : 0;
+		    	if ($result > $limitPercent) {
+                    return 1000000;
+                } elseif ($position > 4) {
+                    return $game_state['small_blind'] * 4;
+                } else {
+                    return 0;
+                }
     		}
     	}
 
