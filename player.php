@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.9";
+    const VERSION = "2.3.10";
 
     public function betRequest($game_state)
     {
@@ -78,7 +78,7 @@ class Player
 
 		    	if ($result > $limitPercent) {
                     return 1000000;
-                } elseif ($position > 4) {
+                } elseif ($position > 4 && $blindsCount > 10) {
                     return $game_state['small_blind'] * 4;
                 } else {
                     return 0;
