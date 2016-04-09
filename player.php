@@ -5,14 +5,22 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.2";
+    const VERSION = "2.3.4";
 
     public function betRequest($game_state)
     {
         // error_log('betRequest:' . PHP_EOL . json_encode($game_state) . PHP_EOL);
 
 
-        error_log($game_state['round'] . PHP_EOL . '---' . PHP_EOL);
+        error_log('round: ' . $game_state['round'] . PHP_EOL . '---' . PHP_EOL);
+
+        // $playersCount = count($game_state['player']);
+
+        // foreach ($game_state['player'] as $p) {
+        //     if ($p['status'] == 'active') {
+        //         $playersCount+++;
+        //     }
+        // }
 
     	// error_log(print_R(game_state, true));
     	foreach ($game_state['players'] as $p) {
@@ -20,9 +28,9 @@ class Player
                 $blindsCount = $p['stack'] / ($game_state['small_blind'] * 2);
 
                 if ($blindsCount > 25) {
-                    $limitPercent = 75;
+                    $limitPercent = 80;
                 } elseif ($blindsCount > 12) {
-                    $limitPercent = 60;
+                    $limitPercent = 65;
                 } else {
                     $limitPercent = 50;
                 }
@@ -34,6 +42,7 @@ class Player
 
                 error_log('card1:' . PHP_EOL . json_encode($card1) . PHP_EOL);
                 error_log('card2:' . PHP_EOL . json_encode($card2) . PHP_EOL);
+                error_log('$blindsCount:' . PHP_EOL . $blindsCount);
                 error_log('$result:' . PHP_EOL . $result);
                 error_log('$limitPercent:' . PHP_EOL . $limitPercent);
 
