@@ -5,7 +5,7 @@ require_once('functions/deciding.php');
 
 class Player
 {
-    const VERSION = "2.3.4";
+    const VERSION = "2.3.5";
 
     public function betRequest($game_state)
     {
@@ -14,7 +14,14 @@ class Player
 
         error_log('round: ' . $game_state['round'] . PHP_EOL . '---' . PHP_EOL);
 
+        // $dealer
         // $playersCount = count($game_state['player']);
+
+        // foreach ($game_state['players'] as $i => $p) {
+        //     if ($p['name'] == 'EnazaTeam') {
+        //         $player = $p;
+        //     }
+        // }
 
         // foreach ($game_state['player'] as $p) {
         //     if ($p['status'] == 'active') {
@@ -30,9 +37,9 @@ class Player
                 if ($blindsCount > 25) {
                     $limitPercent = 80;
                 } elseif ($blindsCount > 12) {
-                    $limitPercent = 65;
+                    $limitPercent = 70;
                 } else {
-                    $limitPercent = 50;
+                    $limitPercent = 55;
                 }
 
 				$card1 = $p['hole_cards'][0];
