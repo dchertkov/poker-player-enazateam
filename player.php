@@ -6,7 +6,7 @@ require_once('functions/combination.php');
 
 class Player
 {
-    const VERSION = "2.3.13";
+    const VERSION = "pwned by php";
 
     public function betRequest($game_state)
     {
