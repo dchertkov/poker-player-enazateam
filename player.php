@@ -46,7 +46,7 @@ class Player
 		    	$result = fCheckProbability($card1['rank'], $card2['rank'], $card1['suit'] == $card2['suit']);
           
                 $playersCount = count($game_state['players']);
-                $dealerIndex = $game_state['dealer'] + 1 % $playersCount + 1;
+                $dealerIndex = ($game_state['dealer'] + 1) % $playersCount;
                 $currentIndex = $i + 1;
 
                 if ($dealerIndex < $currentIndex) {
