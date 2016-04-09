@@ -9,7 +9,7 @@ class Player
 
     public function betRequest($game_state)
     {
-    	error_log(print_R(game_state, true));
+    	// error_log(print_R(game_state, true));
     	foreach ($game_state['players'] as $p) {
     		if ($p['name'] == 'EnazaTeam') {
 				$card1 = $p['hole_cards'][0];
