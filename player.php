@@ -31,9 +31,9 @@ class Player
                 $blindsCount = $p['stack'] / ($game_state['small_blind'] * 2);
 
                 if ($blindsCount > 25) {
-                    $limitPercent = 75;
-                } elseif ($blindsCount > 12) {
                     $limitPercent = 70;
+                } elseif ($blindsCount > 12) {
+                    $limitPercent = 65;
                 } elseif ($blindsCount > 8) {
                     $limitPercent = 63;
                 } else {
