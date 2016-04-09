@@ -23,7 +23,7 @@ function deciding($card1, $card2, $isSuited, $position = false, $limpersCount = 
 	// считаем базовую вероятность против количества 100% - противников на флопе
 	$baseProbability = fCheckProbability($card1, $card2, $isSuited, $enemyCount);
 
-	echo "Базовая вероятность для $enemyCount соперников $baseProbability \n";
+	// echo "Базовая вероятность для $enemyCount соперников $baseProbability \n";
 
 	// увеличиваем вероятность из-за позиции, если есть
 	if ($position) {
@@ -46,7 +46,7 @@ function deciding($card1, $card2, $isSuited, $position = false, $limpersCount = 
 		}
 	}
 
-	echo "Вероятность с учетом других факторов $baseProbability \n";
+	// echo "Вероятность с учетом других факторов $baseProbability \n";
 
 	$baseProbability = $baseProbability * $aggressionFactor;
 }
